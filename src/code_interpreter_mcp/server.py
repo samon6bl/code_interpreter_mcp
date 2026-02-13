@@ -15,7 +15,12 @@ from .executors import PythonExecutor, ShellExecutor, CExecutor, CppExecutor
 Config.setup()
 
 # Create MCP server
-mcp = FastMCP("code-interpreter")
+mcp = FastMCP(
+    "code-interpreter",
+    host=Config.HOST,
+    port=Config.PORT,
+    streamable_http_path="/mcp"
+)
 
 # Initialize executors
 python_executor = PythonExecutor()
@@ -262,11 +267,7 @@ def main():
 
     # Run server with streamable HTTP transport
     mcp.run(
-        transport="streamable-http",
-        stateless_http=True,
-        json_response=True,
-        host=Config.HOST,
-        port=Config.PORT
+        transport="streamable-http"
     )
 
 
