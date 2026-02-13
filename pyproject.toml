@@ -1,0 +1,19 @@
+[project]
+name = "code-interpreter-mcp"
+version = "0.1.0"
+description = "MCP Server for executing code in multiple languages (Python, Bash, C/C++)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=0.1.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+code-interpreter-mcp = "code_interpreter_mcp.server:main"
+
+[tool.uv]
+dev-dependencies = []
